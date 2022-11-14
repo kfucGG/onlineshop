@@ -19,11 +19,11 @@ public class Orders {
     private int id;
 
     private Long random_id;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "buyer_id", referencedColumnName = "id")
     private Buyer buyer;
 
-    @ManyToMany(mappedBy = "orders", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "orders")
     private List<Item> items = new ArrayList<>();
     private LocalDateTime createdAt;
 

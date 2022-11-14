@@ -2,6 +2,7 @@ package com.example.onlineshopping.services;
 
 
 import com.example.onlineshopping.models.Buyer;
+import com.example.onlineshopping.models.Orders;
 import com.example.onlineshopping.repositories.BuyerRepository;
 import com.example.onlineshopping.security.BuyerDetails;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.criteria.Order;
 import java.util.Optional;
 
 @Service
@@ -49,4 +51,5 @@ public class BuyerService implements UserDetailsService {
 
         return new BuyerDetails(buyer.get());
     }
+
 }

@@ -8,8 +8,10 @@
     <form th:action = "@{/process_login}" th:method = "POST">
         <input type = "hidden" th:name = "${_csrf.parameterName}" th:value = "${_csrf.token}">
         <input type = "text" id = "username" name = "username">
+        <label for = "username">Login</label>
         <br/>
         <input type = "password" id = "password" name = "password">
+        <label for = "password">Password</label>
         <input type = "submit" value = "login">
 
         <div th:if = "${param.error}" style = "color: red">Incorrect value</div>

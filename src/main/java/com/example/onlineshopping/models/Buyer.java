@@ -21,7 +21,7 @@ public class Buyer {
     @NotBlank(message = "can not be blank")
     private String password;
 
-    @OneToOne(mappedBy = "buyer", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "buyer")
     private Orders order;
 
 
