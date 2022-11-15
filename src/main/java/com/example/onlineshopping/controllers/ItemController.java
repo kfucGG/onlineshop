@@ -3,6 +3,7 @@ package com.example.onlineshopping.controllers;
 
 import com.example.onlineshopping.models.Buyer;
 import com.example.onlineshopping.models.Item;
+import com.example.onlineshopping.models.Orders;
 import com.example.onlineshopping.repositories.ItemRepository;
 import com.example.onlineshopping.services.BuyerService;
 import com.example.onlineshopping.services.ItemService;
@@ -52,12 +53,8 @@ public class ItemController {
 
     @GetMapping("/test")
     public String test(){
-        Buyer buyer = buyerService.findByUsername(getUserName()).get();
-        List<Item> items = buyer.getOrder().getItems();
-        if(items.isEmpty()){
-            System.out.println("No items");
-        }
-        items.stream().forEach(a -> System.out.println(a.getItemName()));
+        boolean flag = itemService.findItemById(6).isStock();
+        System.out.println(flag);
         return "redirect:/items";
     }
 

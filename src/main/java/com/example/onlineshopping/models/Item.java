@@ -22,11 +22,17 @@ public class Item {
     inverseJoinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"))
     private List<Orders> orders;
 
+    @Column(nullable = true)
+    private int amount;
     public void addInOrder(Orders order){
         if(this.orders == null){
             orders = new ArrayList<>();
         }
         orders.add(order);
+    }
+
+    public boolean isStock(){
+        return (amount > orders.size()) ? true : false;
     }
 
     public void addOrder(Orders order){

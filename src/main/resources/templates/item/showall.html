@@ -7,7 +7,7 @@
 <body>
 
     <div th:each = "item : ${items}">
-        <a th:href = "@{/items/{itemName}(itemName = ${item.getId()})}" th:text = "${item.getItemName()}"></a>
+        <a th:if = "${item.isStock() == true}" th:href = "@{/items/{itemName}(itemName = ${item.getId()})}" th:text = "${item.getItemName()}"></a>
     </div>
 </body>
 </html>
