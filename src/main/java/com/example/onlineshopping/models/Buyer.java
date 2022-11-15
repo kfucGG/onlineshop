@@ -24,14 +24,11 @@ public class Buyer {
     @OneToOne(mappedBy = "buyer")
     private Orders order;
 
+    @Column(columnDefinition = "varchar(100) default ROLE_BUYER")
+    private String role;
 
-    @Override
-    public String toString() {
-        return "Buyer{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", order=" + order +
-                '}';
+    @PrePersist
+    public void onCreate(){
+        this.role = "ROLE_BUYER";
     }
 }

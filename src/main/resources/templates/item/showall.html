@@ -9,5 +9,9 @@
     <div th:each = "item : ${items}">
         <a th:if = "${item.isStock() == true}" th:href = "@{/items/{itemName}(itemName = ${item.getId()})}" th:text = "${item.getItemName()}"></a>
     </div>
+
+    <form th:method = "POST" th:action = "@{/logout}">
+        <input style = "color: blue" type = "submit" value = "logout">
+    </form>
 </body>
 </html>

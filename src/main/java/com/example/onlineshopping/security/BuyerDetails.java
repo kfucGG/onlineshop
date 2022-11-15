@@ -2,9 +2,12 @@ package com.example.onlineshopping.security;
 
 import com.example.onlineshopping.models.Buyer;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
 public class BuyerDetails implements UserDetails {
 
@@ -17,7 +20,7 @@ public class BuyerDetails implements UserDetails {
     //TODO
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.singletonList(new SimpleGrantedAuthority(buyer.getRole()));
     }
 
     @Override

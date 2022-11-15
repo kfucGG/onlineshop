@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All orders</title>
+</head>
+<body>
+  <div th:each = "order : ${orders}">
+      <div th:if = "${order.getBuyer() != null}">
+          <a th:text = "${order.getBuyer().getUsername()}" th:href = "@{/adminpage/orders/{id}(id = ${order.getId()})}"></a>
+      </div>
+  </div>
+</body>
+</html>
